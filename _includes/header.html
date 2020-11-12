@@ -1,0 +1,14 @@
+<header>
+	<div class="wrapper">
+		<a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+		<span class="navicon fa fa-bars"></span>
+
+		<nav>
+			<ul>
+				{% for item in site.data.navigation %}
+					<li><a href="{{ item.url | relative_url }}">{{ item.name }}</a></li>
+				{% endfor %}
+			</ul>
+		</nav>
+	</div>
+</header>

@@ -1,0 +1,51 @@
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 10rem;
+	display: flex;
+	align-items: center;
+	background: $whiteColor;
+	opacity: 0.5;
+	transition: all 250ms;
+
+	z-index: 999;
+
+	.wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.logo {
+			font-size: 1.4rem;
+			letter-spacing: .1rem;
+			text-transform: uppercase;
+			border-bottom: 3px solid $mutedColor;
+
+			&:hover {
+				border-bottom-color: $primeColor;
+				color: $primeColor;
+			}
+		}
+
+		.navicon {
+			cursor: pointer;
+			font-size: 2.4rem;
+			color: $mutedColor;
+
+			&:hover {
+				color: $primeColor;
+			}
+		}
+
+
+		nav {
+			display: none;
+		}
+	}
+
+	&:hover, &.scrolled {
+		opacity: 1;
+	}
+}
