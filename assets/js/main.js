@@ -14,7 +14,16 @@ function toggleHeaderClass(element) {
 	} else {
 		$(element).removeClass('scrolled');
 	}
+}
 
+function toggleMobileNavigation() {
+	$(".navicon").on('click', function() {
+		$(".mobile-navigation").addClass('open');
+	});
+
+	$(".closeicon").on('click', function() {
+		$(".mobile-navigation").removeClass('open');
+	})
 }
 
 
@@ -28,3 +37,5 @@ $(document).ready(function() {
 $(document).on('scroll', function() {
 	toggleHeaderClass("header");
 });
+
+toggleMobileNavigation();

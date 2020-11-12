@@ -1,0 +1,10 @@
+<div class="mobile-navigation">
+	<span class="closeicon fa fa-times"></span>
+	<nav>
+		<ul>
+			{% for item in site.data.navigation %}
+				<li><a href="{{ item.url | relative_url}}">{{ item.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</nav>
+</div>

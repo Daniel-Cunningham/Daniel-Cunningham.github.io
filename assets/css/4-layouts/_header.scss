@@ -6,11 +6,13 @@ header {
 	height: 10rem;
 	display: flex;
 	align-items: center;
-	background: $whiteColor;
-	opacity: 0.5;
+	background: transparent;
+	color: $whiteColor;
+	opacity: 1;
 	transition: all 250ms;
-
+	box-shadow: 0px 0px 20px -10px transparentize(black, 0.8);
 	z-index: 999;
+	border-bottom: 1px solid transparentize($whiteColor, 0.8);
 
 	.wrapper {
 		display: flex;
@@ -21,18 +23,37 @@ header {
 			font-size: 1.4rem;
 			letter-spacing: .1rem;
 			text-transform: uppercase;
-			border-bottom: 3px solid $mutedColor;
+			display: flex;
+			align-items: center;
+			gap: .5rem;
+			transition: all 250ms;
+			color: $whiteColor;
+
+			&::before {
+				content: "< ";
+			}
+
+			&::after {
+				content: " />";
+			}
+
+			&::before, &::after {
+				font-size: 2rem;
+			}
 
 			&:hover {
-				border-bottom-color: $primeColor;
-				color: $primeColor;
+				color: $secondColor;
+
+				&::before, &::after {
+					color: $primeColor;
+				}
 			}
 		}
 
 		.navicon {
 			cursor: pointer;
 			font-size: 2.4rem;
-			color: $mutedColor;
+			color: $whiteColor;
 
 			&:hover {
 				color: $primeColor;
@@ -42,10 +63,68 @@ header {
 
 		nav {
 			display: none;
+
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+
+				li {
+					display: block;
+					margin-right: 2rem;
+
+					&:last-child {
+						margin-right: 0;
+					}
+
+					a {
+						display: block;
+						text-transform: uppercase;
+						font-size: 1.4rem;
+						color: $whiteColor;
+					}
+				}
+			}
 		}
 	}
 
 	&:hover, &.scrolled {
 		opacity: 1;
+		background:$whiteColor;
+
+		.logo {
+			color: $secondColor;
+		}
+
+		.navicon {
+			color: $secondColor;
+		}
+
+		nav {
+			ul {
+				li {
+					a {
+						color: $secondColor;
+
+						&:hover {
+							color: $primeColor;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (min-width: 768px) {
+		.wrapper {
+			.navicon {
+				display: none;
+			}
+
+			nav {
+				display: block;
+			}
+		}
 	}
 }
